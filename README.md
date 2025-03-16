@@ -15,7 +15,7 @@ Website company profile untuk Ayam Bakar Tumhiho, menyajikan informasi tentang p
 - HTML5
 - CSS3
 - JavaScript
-- Bootstrap 4
+- Bootstrap 5
 - Font Awesome
 - Google Fonts
 
