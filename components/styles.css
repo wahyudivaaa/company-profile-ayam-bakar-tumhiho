@@ -1,0 +1,61 @@
+
+@import "banner.css";
+@import "footer.css";
+@import "cards.css";
+@import "carousel.css";
+@import "about.css";
+@import "contact.css";
+
+
+body {
+  background-color: #faf9f9;
+  font-family: 'Lora', serif;
+  padding: 20px 40px 20px;
+  text-align: center;
+}
+.navbar {
+  margin: 0;
+  padding: 10px 0 10px 40px;
+}
+
+#header ul a:hover {
+  color: black;
+  padding: 5px;
+  font-size: 20px;
+}
+
+#header a:hover {
+  color: grey;
+  font-size: 20px;
+}
+
+@media (max-width: 830px) {
+  #card-responsive {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 1400px) {
+  #card-responsive {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 830px){
+  #about p{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 830px){
+  #testimonials-carousel h2{
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #testimonials-carousel {
+    margin-bottom: 30px;
+    height: 500px;
+  }
+}
