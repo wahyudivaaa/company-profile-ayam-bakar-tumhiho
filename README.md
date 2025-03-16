@@ -1,26 +1,37 @@
-## Product Landing Page
- 
-> *Le Wagon Coding Bootcamp Challenge*  
+# Website Ayam Bakar Tumhiho
 
-### [Take a look!](https://asj-code.github.io/Product-Landing-Page/)
+Website company profile untuk Ayam Bakar Tumhiho, menyajikan informasi tentang produk ayam bakar frozen dan sambal pedas khas.
 
-It is a landing page created as part of a challenge of 7 days of front-end development lessons content. In order to in practice languages like HTML, CSS and JavaScript, I have developed a product landing page in which you can buy plants and supplies related to gardering.
+## Fitur
 
-#### Programming languages used to create this site:
-:small_orange_diamond:  HTML5
+- Responsive design
+- Product showcase
+- Testimonial carousel
+- Contact form
+- Social media integration
 
-:small_orange_diamond:  CSS3
+## Teknologi
 
-:small_orange_diamond:  JavaScript
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap 5
+- Font Awesome
+- Google Fonts
 
-#### Libraries
-:small_orange_diamond:  Bootstrap 4
+## Instalasi
 
-#### Resources
-:small_orange_diamond:  Google Fonts
+1. Clone repository ini
+```bash
+git clone https://github.com/[username]/ayam-bakar-tumhiho.git
+```
 
-:small_orange_diamond:  Font Awesome
+2. Buka file `index.html` di browser
 
-#### About this project:
-- Multiplatform Responsive Design 
-- GitHub Pages Hosting
+## Kontribusi
+
+Silakan kirim pull request untuk kontribusi.
+
+## Lisensi
+
+[MIT License](LICENSE)
