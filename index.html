@@ -8,6 +8,25 @@
     <meta name="description" content="Nikmati kelezatan Ayam Bakar Tumhiho dengan bumbu rahasia yang meresap sampai ke tulang. Dilengkapi dengan sambal pedas khas yang bikin ketagihan. Tersedia dalam bentuk frozen food untuk kenyamanan Anda.">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Menambahkan emoji sebagai favicon menggunakan emoji code -->
+    <link rel="icon" data-emoji="🍗" type="image/png">
+    <script>
+        // Script untuk mengganti emoji menjadi favicon
+        document.addEventListener('DOMContentLoaded', () => {
+            const favicon = document.querySelector('link[rel="icon"]');
+            if (favicon) {
+                const canvas = document.createElement('canvas');
+                canvas.width = 64;
+                canvas.height = 64;
+                const ctx = canvas.getContext('2d');
+                ctx.font = '64px serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('🍗', 32, 32);
+                favicon.href = canvas.toDataURL();
+            }
+        });
+    </script>
 
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -414,7 +433,7 @@
     </header>
 
     <!-- Banner Section -->
-    <div class="banner" style="background-image: url('public/images/background_image.png'); height: 100vh; background-size: cover; background-position: center; display: flex; align-items: center; position: relative;">
+    <div class="banner" style="background-image: url('/public/images/background_image.png'); height: 100vh; background-size: cover; background-position: center; display: flex; align-items: center; position: relative;">
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);"></div>
         <div class="main-container" style="position: relative; z-index: 2; padding: 0 15%; color: white;">
             <h1 style="font-size: 4rem; margin: 15px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Ayam Bakar Tumhiho</h1>
@@ -458,7 +477,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100" style="border: none; border-radius: 15px; overflow: hidden; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <img src="public/images/IMG_5654.jpg" class="card-img-top" style="height: 250px; object-fit: cover;" alt="Ayam Bakar Frozen">
+                    <img src="/public/images/IMG_5654.jpg" class="card-img-top" style="height: 250px; object-fit: cover;" alt="Ayam Bakar Frozen">
                     <div class="card-body text-center">
                         <h5 class="card-title" style="font-size: 1.5rem; color: #2E282A;">Ayam Bakar Frozen</h5>
                         <p class="card-text" style="color: #666;">Ayam bakar yang sudah dibekukan, siap untuk dihangatkan dan disajikan kapan saja. Tetap lezat seperti baru dibakar.</p>
@@ -471,7 +490,7 @@
     </section>
 
     <!-- About Section -->
-    <div id="about" style="padding: 100px 0; background-size: cover; background-position: center; position: relative; background-image: url('public/images/20250405_164028.jpg');">
+    <div id="about" style="padding: 100px 0; background-size: cover; background-position: center; position: relative; background-image: url('/public/images/20250405_164028.jpg');">
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%);"></div>
         <div style="position: relative; z-index: 2; color: white; padding: 0 15%; text-align: center;">
             <h2 style="position: relative; margin-bottom: 50px; font-size: 2.5rem; text-align: center; color: white;">Tentang Kami</h2>
@@ -585,7 +604,103 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-    <script src="validation.js"></script>
+
+    <!-- Menambahkan kode JavaScript untuk pilihProduk langsung di halaman -->
+    <script>
+        // Variabel global untuk menyimpan data produk
+        let produkDipilih = '';
+        let hargaDipilih = '';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const submit = document.querySelector("#submit");
+            const submitHelp = document.getElementById('submitHelp');
+
+            // Mendapatkan elemen form
+            const form = document.getElementById('pesanForm');
+            const nameInput = document.getElementById('name');
+            const produkInput = document.getElementById('produk');
+            const hargaInput = document.getElementById('harga');
+            const jumlahInput = document.getElementById('jumlah');
+            const alamatInput = document.getElementById('alamat');
+            const catatanInput = document.getElementById('catatan');
+
+            // Jika user langsung masuk ke halaman kontak tanpa memilih produk
+            if (!produkDipilih) {
+                if (produkInput) {
+                    produkInput.removeAttribute('readonly');
+                    produkInput.setAttribute('placeholder', 'Masukkan nama produk yang ingin dipesan');
+                }
+            }
+
+            // Efek scroll pada navbar
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (navbar) {
+                    if (this.scrollY > 50) {
+                        navbar.classList.add('bg-white');
+                        navbar.style.boxShadow = '0 3px 10px rgba(0,0,0,0.15)';
+                    } else {
+                        navbar.classList.remove('bg-white');
+                        navbar.style.boxShadow = 'none';
+                    }
+                }
+            });
+
+            // Handle form submission
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Ambil nilai dari form
+                    const nama = nameInput.value;
+                    const produk = produkInput.value;
+                    const jumlah = jumlahInput.value;
+                    const alamat = alamatInput.value;
+                    const catatan = catatanInput.value;
+
+                    // Buat pesan untuk WhatsApp
+                    let pesan = `*PESANAN AYAM BAKAR TUMHIHO*%0A%0A`;
+                    pesan += `Nama: ${nama}%0A%0A`;
+                    pesan += `*Detail Pesanan*%0A`;
+                    pesan += `Produk: ${produk}%0A`;
+                    pesan += `Jumlah: ${jumlah}%0A%0A`;
+                    pesan += `*Alamat Pengiriman*%0A${alamat}%0A%0A`;
+
+                    if (catatan) {
+                        pesan += `*Catatan*%0A${catatan}%0A%0A`;
+                    }
+
+                    pesan += `Terima kasih telah memesan di Ayam Bakar Tumhiho!`;
+
+                    // Redirect ke WhatsApp
+                    window.open(`https://wa.me/6281246188940?text=${pesan}`, '_blank');
+
+                    // Reset form
+                    form.reset();
+                    submitHelp.textContent = 'Pesanan berhasil dikirim! Anda akan diarahkan ke WhatsApp.';
+                    submitHelp.classList.remove('text-danger');
+                    submitHelp.classList.add('text-success');
+                });
+            }
+        });
+
+        // Fungsi untuk menyimpan produk yang dipilih
+        function pilihProduk(nama) {
+            produkDipilih = nama;
+
+            // Set data ke form
+            const produkInput = document.getElementById('produk');
+
+            if (produkInput) {
+                produkInput.value = nama;
+
+                // Scroll ke section kontak
+                document.getElementById('contact').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
 </body>
 
 </html>
